@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //from sam
+//from tirthesh
 public class ChunkManager : MonoBehaviour
 {
     public static ChunkManager instance;
