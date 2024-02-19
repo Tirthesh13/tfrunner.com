@@ -7,6 +7,7 @@ public class SettingsManager : MonoBehaviour
 {
 
     [Header(" Elements ")]
+    [SerializeField] private SoundsManager soundsManager;
     [SerializeField] private Sprite optionOnSprite;
     [SerializeField] private Sprite optionOffSprite;
     [SerializeField] private Image soundsButtonImage;
@@ -17,13 +18,21 @@ public class SettingsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Setup();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Setup()
+    {
+        if (soundsState)
+            EnableSounds();
+        else
+            DisableSounds();
     }
 
     public void ChangeSoundsState()
@@ -39,11 +48,13 @@ public class SettingsManager : MonoBehaviour
 
     private void DisableSounds()
     {
-
+        soundsManager.DisableSounds();
+        soundsButtonImage.sprite = optionOffSprite;
     }
 
     private void EnableSounds()
     {
-
+        soundsManager.EnableSounds();
+        soundsButtonImage.sprite = optionOnSprite;
     }
 }
