@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//from sam
 public class ChunkManager : MonoBehaviour
 {
     public static ChunkManager instance;
