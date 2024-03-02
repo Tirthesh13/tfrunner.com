@@ -15,6 +15,12 @@ public class SettingsManager : MonoBehaviour
     [Header(" Settings ")]
     private bool soundsState = true;
 
+    private void Awake()
+    {
+        soundsState = PlayerPrefs.GetInt("sounds", 1) == 1;
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +49,8 @@ public class SettingsManager : MonoBehaviour
             EnableSounds();
 
         soundsState = !soundsState;
+
+        PlayerPrefs.SetInt("sounds", soundsState ? 1 : 0);
        
     }
 

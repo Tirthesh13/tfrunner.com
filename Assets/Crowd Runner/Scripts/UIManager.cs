@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +11,8 @@ public class UIManager: MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameoverPanel;
     [SerializeField] private GameObject levelCompletePanel;
+    [SerializeField] private GameObject settingsPanel;
+
     [SerializeField] private Slider progressBar;
     [SerializeField] private Text levelText;
 
@@ -22,6 +23,7 @@ public class UIManager: MonoBehaviour
 
         gamePanel.SetActive(false);
         gameoverPanel.SetActive(false);
+        settingsPanel.SetActive(false);
 
         levelText.text = "Level " + (ChunkManager.instance.GetLevel() + 1);
 
@@ -79,5 +81,15 @@ public class UIManager: MonoBehaviour
 
         float progress = PlayerController.instance.transform.position.z / ChunkManager.instance.GetFinishZ() ;
         progressBar.value = progress;
+    }
+
+    public void ShowSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+    }
+
+    public void HideSettingsPanel()
+    {
+        settingsPanel.SetActive(false);
     }
 }
